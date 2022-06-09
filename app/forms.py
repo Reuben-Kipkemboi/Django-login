@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 # default django user creation form
 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class RegisterForm(UserCreationForm):
@@ -30,4 +30,18 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username','email', 'password1', 'password2']
-        
+
+
+#login form
+class UserLoginForm(AuthenticationForm):
+    # fields we want to include and customize in our form
+    username = forms.CharField(max_length=120,required=True,
+    widget=forms.TextInput(attrs={'placeholder': 'Enter Your User Name', 'class': 'form-control',}))
+                                                       
+    password = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'User Password', 'class': 'form-control','data-toggle': 'password', 'id':'password',}))
+      
+    
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'remember_me']
+
