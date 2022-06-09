@@ -10,17 +10,20 @@ def home(request):
 
 
 def register(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        form = RegisterForm()
-        if request.method =="POST":
-            form = RegisterForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                email = form.cleaned_data.get('email')
-                messages.success(request, "account created for" + user )
-                return redirect('login')
+    # if request.user.is_authenticated:
+    #     return redirect('home')
+    # else:
+    form = RegisterForm()
+    if request.method =="POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            messages.success(request, "account created for" + user )
+            return redirect('login')
 
     return render(request, 'registration.html', {'form': form})
+
+def login(request):
+    return render(request, 'login.html')

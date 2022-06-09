@@ -12,8 +12,8 @@
                 </div>
 
                 <div class="card-body">
-                    {% csrf_token %}
                     <form action="" method="POST">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -55,15 +55,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group mt-4 mb-0">
+                            <button type="submit" class="col-md-12 btn btn-outline-primary">Sign Up</button><br><br>
+                        </div>
+                    </form>
                 </div>
-
-
-
-
-                </form>
+                <div class="card-footer text-center">
+                    <div class="small">
+                        <a href="#">Have an account? Proceed to login</a>
+                    </div>
+                </div>
             </div>
+
+
+
+
+            </form>
         </div>
     </div>
+</div>
 </div>
 </div>
 </div>
