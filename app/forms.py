@@ -37,11 +37,13 @@ class UserLoginForm(AuthenticationForm):
     # fields we want to include and customize in our form
     username = forms.CharField(max_length=120,required=True,
     widget=forms.TextInput(attrs={'placeholder': 'Enter Your User Name', 'class': 'form-control',}))
+    
+    email = forms.EmailField(required=True,widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control',}))
                                                        
     password = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'User Password', 'class': 'form-control','data-toggle': 'password', 'id':'password',}))
       
     
     class Meta:
         model = User
-        fields = ['username', 'password', 'remember_me']
+        fields = ['username','email', 'password']
 
