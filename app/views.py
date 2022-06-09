@@ -6,7 +6,7 @@ from django.contrib import messages
 
 
 def home(request):
-    return render(request, 'login.html')
+    return render(request, 'index.html')
 
 
 def register(request):
@@ -23,7 +23,7 @@ def register(request):
             messages.success(request, "account created for" + user )
             return redirect('login')
 
-    return render(request, 'registration.html', {'form': form})
+    return render(request, 'registration.html', {'form': form, 'messages':messages})
 
 def login(request):
     return render(request, 'login.html')
