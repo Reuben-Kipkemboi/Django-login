@@ -14,7 +14,6 @@ class RegisterForm(UserCreationForm):
     last_name = forms.CharField(max_length=150,required=True,
     widget=forms.TextInput(attrs={'placeholder': 'Your Last Name','class': 'form-control',}))
                                                               
-                                                                                    
     username = forms.CharField(max_length=100,required=True,
     widget=forms.TextInput(attrs={'placeholder': 'Provide your Username','class':'form-control', }))
                                
